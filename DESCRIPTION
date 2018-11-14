@@ -1,0 +1,15 @@
+Package: plotlyvignettes
+Title: Contains vignettes for the plotlyutils package.
+Version: 0.0.0.9000
+Authors@R:  person("Alan", "O'Callaghan", 
+    email = "alan.ocallaghan@outlook.com",
+    role = c("aut", "cre"))
+Description: Basically, nothing at all.
+Depends: R (>= 3.5.1),
+	plotlyutils
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr
+
