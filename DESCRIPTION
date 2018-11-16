@@ -8,6 +8,7 @@ Description: Basically, nothing at all.
 Depends: R (>= 3.5.1),
 	plotlyutils
 License: What license is it under?
+BugReports: https://github.com/Alanocallaghan/plotlyutils
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
