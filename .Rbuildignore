@@ -3,3 +3,5 @@
 ^plotlyvignettes\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
+GDCdata/
+MANIFEST.txt

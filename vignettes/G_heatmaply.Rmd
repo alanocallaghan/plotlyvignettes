@@ -30,8 +30,8 @@ suppressPackageStartupMessages({
 
 ```{r, fig.caption = "Correlation heatmap"}
 ## https://www.sciencedirect.com/science/article/pii/S1673852717301492
-data(GBMdata)
-df <- colData(GBMdata)[, "subtype_IDH.status", drop = FALSE]
+data(GBMdata, package="plotlyvignettes")
+df <- colData(GBMdata)[, "paper_IDH.status", drop = FALSE]
 colnames(df) <- "IDH1 status"
 gene_signature <- c("ALDOB",
     "ENO1",
@@ -51,6 +51,7 @@ heatmaply_cor(cor(raw_median_mat[gene_signature, ]),
 ```
 
 ```{r}
+data(voomed_GBM, package="plotlyvignettes")
 voom_mat <- voomed_GBM$E
 voom_median_mat <- sweep(voom_mat, 1, rowMedians(voom_mat))
 max <- max(abs(voom_median_mat[gene_signature, ]))

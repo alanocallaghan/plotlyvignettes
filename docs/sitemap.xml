@@ -46,9 +46,18 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/GBMdata.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GBMtopTable.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
     <loc>/reference/try.html</loc>
+  </url>
+  <url>
+    <loc>/reference/voomed_GBM.html</loc>
   </url>
 </urlset>

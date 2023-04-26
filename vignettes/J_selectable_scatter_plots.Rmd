@@ -24,15 +24,16 @@ suppressPackageStartupMessages({
 ```
 
 ```{r}
-data(voomed_GBM)
+data(voomed_GBM, package="plotlyvignettes")
+data(GBMdata, package="plotlyvignettes")
 pcs <- prcomp(t(voomed_GBM$E))
 pc_data <- pcs$x
 
 columns <- c(
-    "subtype_IDH.status",
-    "subtype_Age..years.at.diagnosis.",
-    "subtype_Gender",
-    "subtype_Pan.Glioma.RNA.Expression.Cluster",
+    "paper_IDH.status",
+    "paper_Age..years.at.diagnosis.",
+    "paper_Gender",
+    "paper_Pan.Glioma.RNA.Expression.Cluster",
     "ethnicity"
 )
 colours <- colData(GBMdata)[, columns, drop = FALSE]

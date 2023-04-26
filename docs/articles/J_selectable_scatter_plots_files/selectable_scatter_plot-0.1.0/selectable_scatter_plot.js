@@ -1,7 +1,5 @@
 function selectable_scatter_plot(data, div) {
 
-    const d3 = Plotly.d3;
-
     var inner = d3.select("#" + div.id)
         .append("div")
         .attr("id", "inner");
@@ -51,9 +49,13 @@ function selectable_scatter_plot(data, div) {
     var colours = data.colours;
     var colourKeys = Object.keys(colours);
     var keys = Object.keys(data.coords);
+    var names = data.names;
     var xVar = defaultX = keys[0];
     var yVar = defaultY = keys[1];
-    var colourVar = colourKeys[0];
+    var colourVar = colourKeys[0];;
+    if (data.select_first) {
+        colourVar = data.select_first;
+    }
 
     for (var key of keys) {
         var option = xSelect.append("option")
@@ -70,11 +72,11 @@ function selectable_scatter_plot(data, div) {
         var option = colourSelect.append("option")
             .text(colourKey)
             .attr("value", colourKey)
-            .attr("selected", colourKey == colourKeys[0] ? "selected" : undefined);
+            .attr("selected", colourKey == colourVar ? "selected" : undefined);
     }
 
     // todo: check if this is good
-    plotdiv = plot[0][0];
+    var plotdiv = plot._groups[0][0];
     
     function draw() {
         var colourby = colours[colourVar];
@@ -84,7 +86,7 @@ function selectable_scatter_plot(data, div) {
             var hovertext = [];
             for (var i = 0; i < data.coords[xVar].length; i++) {
                 hovertext.push(
-                    keys[i] + "<br>" +
+                    names[i] + "<br>" +
                     xVar + ": " + data.coords[xVar][i] + "<br>" +
                     yVar + ": " + data.coords[yVar][i] + "<br>" +
                     colourVar + ": " + colourby[i]
@@ -122,7 +124,6 @@ function selectable_scatter_plot(data, div) {
             );
 
         } else {
-
             var colour = colourby.filter(onlyUnique);
             var traces = [];
             for (var value of colour) {
@@ -137,7 +138,7 @@ function selectable_scatter_plot(data, div) {
                         yVals.push(data.coords[yVar][i]);
                         indices.push(i);
                         hovertext.push(
-                            keys[i] + "<br>" +
+                            names[i] + "<br>" +
                             xVar + ": " + data.coords[xVar][i] + "<br>" +
                             yVar + ": " + data.coords[yVar][i] + "<br>" +
                             colourVar + ": " + colourby[i]
@@ -176,18 +177,17 @@ function selectable_scatter_plot(data, div) {
             );
 
         }
-    }
+    };
     window.onresize = function() {
         Plotly.relayout(plotdiv, {
             'width': plotdiv.clientWidth,
             'height': plotdiv.clientHeight
         });
-    }
+    };
 
     function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
-    }
+    };
 
-    draw()
-
+    draw();
 }

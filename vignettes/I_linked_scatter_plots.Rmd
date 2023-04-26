@@ -21,7 +21,7 @@ suppressPackageStartupMessages({
     library("plotly")
 })
 
-data(GBMtopTable)
+data(GBMtopTable, package="plotlyvignettes")
 set.seed(42)
 tt <- GBMtopTable[sample(seq_len(nrow(GBMtopTable)), 1000), ]
 title <- "Glioblastoma - IDH1 mutant vs wt"

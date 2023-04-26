@@ -23,7 +23,7 @@ data <- data[ind_symb, ]
 data <- data[!duplicated2(genes), ]
 ind_not_na <- !is.na(colData(data)$paper_IDH.status)
 data <- data[, ind_not_na]
-rownames(data) <- rowData(data)[[2]]
+rownames(data) <- rowData(data)$gene_name
 GBMdata <- data
 
 
