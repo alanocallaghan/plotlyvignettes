@@ -1,27 +1,26 @@
 ---
 title: "8. iheatmapr"
 output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    self_contained: yes
-    toc: false
-    fig_width: 10
-    fig_height: 6
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)  
-
+    html_document:
+        code_folding: hide
+        fig_caption: yes
+        self_contained: yes
+        toc: false
+        fig_width: 10
+        fig_height: 6
+        depth: 3  # upto three depths of headings (specified by #, ## and ###)  
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{Vignette Title}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ```{r}
 suppressPackageStartupMessages({
-  library("iheatmapr")
-  library("datasets")
-  library("reshape2")
-  library("magrittr")
+    library("iheatmapr")
+    library("datasets")
+    library("reshape2")
+    library("magrittr")
 })
 
 Indometh_matrix <- acast(Indometh, Subject ~ time, value.var = "conc")
@@ -35,19 +34,23 @@ patient_groups <- c("A","A","B","A","B","A") # Arbitrary groups
 ```
 
 ```{r, fig.caption = "iheatmapr vignette example"}
-iheatmap(Indometh_patient_cor, 
-         cluster_cols = "hclust", 
-         cluster_rows = "hclust",
-         col_title = "Patients",
-         row_title = "Patients",
-         name = "Correlation",
-         row_k = 3,
-         row_annotation = data.frame("Max" = patient_max_conc,
-                                     "Min" = patient_min_conc,
-                                     "Groups" = patient_groups)) %>%
-  add_iheatmap(Indometh_matrix,
-               name = "Indometacin<br>Concentration", # html <br> tag used to split lines
-               col_title = "Time",
-               col_labels = TRUE) %>% 
-  add_col_summary()
+iheatmap(
+    Indometh_patient_cor, 
+    cluster_cols = "hclust", 
+    cluster_rows = "hclust",
+    col_title = "Patients",
+    row_title = "Patients",
+    name = "Correlation",
+    row_k = 3,
+    row_annotation = data.frame(
+        Max = patient_max_conc,
+        Min = patient_min_conc,
+        Groups = patient_groups
+    )) %>%
+    add_iheatmap(
+        Indometh_matrix,
+        name = "Indometacin<br>Concentration", # html <br> tag used to split lines
+        col_title = "Time",
+        col_labels = TRUE) %>% 
+    add_col_summary()
 ```

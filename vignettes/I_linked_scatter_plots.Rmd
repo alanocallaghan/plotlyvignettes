@@ -1,26 +1,27 @@
 ---
 title: "9. Scatter plot with links"
 output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    self_contained: yes
-    toc: false
-    fig_width: 10
-    fig_height: 6
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)  
+    html_document:
+        code_folding: hide
+        fig_caption: yes
+        self_contained: yes
+        toc: false
+        fig_width: 10
+        fig_height: 6
+        depth: 3  # upto three depths of headings (specified by #, ## and ###)  
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{Vignette Title}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ```{r}
 suppressPackageStartupMessages({
-  library("plotlyutils")
-  library("plotly")
+    library("plotlyutils")
+    library("plotly")
 })
 
+data(GBMtopTable)
 set.seed(42)
 tt <- GBMtopTable[sample(seq_len(nrow(GBMtopTable)), 1000), ]
 title <- "Glioblastoma - IDH1 mutant vs wt"
@@ -53,7 +54,6 @@ linked_scatter_plot(
     groups = tt[["Group"]],
     title = title,
     colours = colours)
-
 ```
 
 

@@ -1,18 +1,18 @@
 ---
 title: "11. Histogram with dropdown menu for x variable"
 output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    self_contained: yes
-    toc: false
-    fig_width: 10
-    fig_height: 6
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)  
+    html_document:
+        code_folding: hide
+        fig_caption: yes
+        self_contained: yes
+        toc: false
+        fig_width: 10
+        fig_height: 6
+        depth: 3  # upto three depths of headings (specified by #, ## and ###)  
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{Vignette Title}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ```{r}

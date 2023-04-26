@@ -1,27 +1,27 @@
 ---
 title: "6. Density plots"
 output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    self_contained: yes
-    toc: false
-    fig_width: 10
-    fig_height: 6
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)  
+    html_document:
+        code_folding: hide
+        fig_caption: yes
+        self_contained: yes
+        toc: false
+        fig_width: 10
+        fig_height: 6
+        depth: 3  # upto three depths of headings (specified by #, ## and ###)  
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{Vignette Title}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ```{r}
 suppressPackageStartupMessages({
-  library("SummarizedExperiment")
-  library("magrittr")
-  library("plotlyutils")
-  library("plotly")
-  library("limma")
+    library("SummarizedExperiment")
+    library("magrittr")
+    library("plotlyutils")
+    library("plotly")
+    library("limma")
 })
 ```
 
@@ -30,7 +30,7 @@ suppressPackageStartupMessages({
 
 
 ```{r, fig.caption = "Density plot of counts"}
-
+data(GBMdata)
 mat <- assay(GBMdata) + 0.5
 # ind <- sample(1:ncol(mat), 30)
 plotly_density(
@@ -38,14 +38,13 @@ plotly_density(
     palette=colorspace::rainbow_hcl,
     xlab = "log<sub>2</sub>(reads + 0.5)") %>% 
     layout(showlegend = FALSE)
-
 ```
+
 ```{r, fig.caption = "Voomed density"}
+data(voomed_GBM)
 plotly_density(
     voomed_GBM$E, 
     palette=colorspace::rainbow_hcl,
     xlab = "log<sub>2</sub>(normalised counts per million)") %>%
     layout(showlegend = FALSE)
-
-
 ```

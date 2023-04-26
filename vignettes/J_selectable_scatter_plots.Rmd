@@ -1,18 +1,18 @@
 ---
 title: "10. Scatter plot with dropdown menus"
 output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    self_contained: yes
-    toc: false
-    fig_width: 10
-    fig_height: 6
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)  
+    html_document:
+        code_folding: hide
+        fig_caption: yes
+        self_contained: yes
+        toc: false
+        fig_width: 10
+        fig_height: 6
+        depth: 3  # upto three depths of headings (specified by #, ## and ###)  
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{Vignette Title}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ```{r}
@@ -24,6 +24,7 @@ suppressPackageStartupMessages({
 ```
 
 ```{r}
+data(voomed_GBM)
 pcs <- prcomp(t(voomed_GBM$E))
 pc_data <- pcs$x
 

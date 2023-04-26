@@ -1,27 +1,27 @@
 ---
 title: "1. Interactive data visualisation with plotly and R"
 output:
-  html_document:
-    code_folding: hide
-    fig_caption: yes
-    self_contained: yes
-    toc: false
-    fig_width: 10
-    fig_height: 8
-    depth: 3  # upto three depths of headings (specified by #, ## and ###)  
-
+    html_document:
+        code_folding: hide
+        fig_caption: yes
+        self_contained: yes
+        toc: false
+        fig_width: 10
+        fig_height: 8
+        depth: 3  # upto three depths of headings (specified by #, ## and ###)  
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{Vignette Title}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 ```{r}
 suppressPackageStartupMessages({
-  library("datasauRus")
-  library("plotly")
-  library("magrittr")
-  library("plotlyutils")
-  library("tidyr")
+    library("datasauRus")
+    library("plotly")
+    library("magrittr")
+    library("plotlyutils")
+    library("tidyr")
+    library("dplyr")
 })
 ```
 
@@ -39,49 +39,49 @@ suppressPackageStartupMessages({
 ```{r}
 data(anscombe)
 df <- gather(anscombe) %>%
-  mutate(dataset = gsub("[xy](\\d)", "\\1", key)) %>%
-  mutate(key = gsub("\\d", "", key)) %>%
-  group_by(key) %>% 
-  mutate(id=1:n()) %>% 
-  spread(key, value) %>% 
-  select(-id)
+    mutate(dataset = gsub("[xy](\\d)", "\\1", key)) %>%
+    mutate(key = gsub("\\d", "", key)) %>%
+    group_by(key) %>% 
+    mutate(id = 1:n()) %>% 
+    spread(key, value) %>% 
+    select(-id)
 
 lms <- df %>% 
-  group_by(dataset) %>% 
-  summarise(
-    intercept = broom::tidy(lm(y ~ x))[1, "estimate"][[1]],
-    slope = broom::tidy(lm(y ~ x))[2, "estimate"][[1]],
-    x = min(df$x),
-    xend = max(df$x),
-    y = (x * slope) + intercept,
-    yend = (xend * slope) + intercept
-  )
+    group_by(dataset) %>% 
+    summarise(
+        intercept = broom::tidy(lm(y ~ x))[1, "estimate"][[1]],
+        slope = broom::tidy(lm(y ~ x))[2, "estimate"][[1]],
+        x = min(df$x),
+        xend = max(df$x),
+        y = (x * slope) + intercept,
+        yend = (xend * slope) + intercept
+    )
 
 
 ax <- list(
-  title = "",
-  zeroline = FALSE,
-  showline = FALSE,
-  showticklabels = FALSE,
-  showgrid = FALSE
+    title = "",
+    zeroline = FALSE,
+    showline = FALSE,
+    showticklabels = FALSE,
+    showgrid = FALSE
 )
 
 plot_ly(df, 
-    x = ~x, 
-    y = ~y, 
-    frame = ~dataset, 
-    mode = "markers",
-    type = "scatter",
-    showlegend = FALSE) %>%
-  add_segments(
-    data = lms,
-    inherit = FALSE,
-    x = ~x,
-    xend = ~xend,
-    y = ~y,
-    yend = ~yend,
-    frame = ~dataset
-  ) %>%
+        x = ~x, 
+        y = ~y, 
+        frame = ~dataset, 
+        mode = "markers",
+        type = "scatter",
+        showlegend = FALSE) %>%
+    add_segments(
+        data = lms,
+        inherit = FALSE,
+        x = ~x,
+        xend = ~xend,
+        y = ~y,
+        yend = ~yend,
+        frame = ~dataset
+    ) %>%
     layout(xaxis = ax, yaxis = ax) %>%
     animation_opts(frame = 2500, transition = 500)
 
