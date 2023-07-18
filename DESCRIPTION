@@ -19,12 +19,13 @@ Depends: R (>= 3.5.1),
     limma,
     magrittr,
     plotly,
-	plotlyutils,
+    plotlyutils,
     reshape2,
     rmarkdown,
     SummarizedExperiment,
-    TCGAbiolinks,
     tidyr
+Suggests:
+    TCGAbiolinks
 License: What license is it under?
 BugReports: https://github.com/Alanocallaghan/plotlyutils
 Encoding: UTF-8
