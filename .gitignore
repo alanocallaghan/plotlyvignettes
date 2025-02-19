@@ -3,3 +3,5 @@ doc
 .Rproj.user
 GDCdata/
 MANIFEST.txt
+/doc/
+/Meta/

@@ -1,60 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/A_intro.html</loc>
-  </url>
-  <url>
-    <loc>/articles/B_scatterplots.html</loc>
-  </url>
-  <url>
-    <loc>/articles/C_barplots.html</loc>
-  </url>
-  <url>
-    <loc>/articles/D_boxplots.html</loc>
-  </url>
-  <url>
-    <loc>/articles/E_line_plots.html</loc>
-  </url>
-  <url>
-    <loc>/articles/F_density.html</loc>
-  </url>
-  <url>
-    <loc>/articles/G_heatmaply.html</loc>
-  </url>
-  <url>
-    <loc>/articles/H_iheatmapr.html</loc>
-  </url>
-  <url>
-    <loc>/articles/I_linked_scatter_plots.html</loc>
-  </url>
-  <url>
-    <loc>/articles/J_selectable_scatter_plots.html</loc>
-  </url>
-  <url>
-    <loc>/articles/K_selectable_histogram.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GBMdata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GBMtopTable.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/voomed_GBM.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/articles/A_intro.html</loc></url>
+<url><loc>/articles/B_scatterplots.html</loc></url>
+<url><loc>/articles/C_barplots.html</loc></url>
+<url><loc>/articles/D_boxplots.html</loc></url>
+<url><loc>/articles/E_line_plots.html</loc></url>
+<url><loc>/articles/F_density.html</loc></url>
+<url><loc>/articles/G_heatmaply.html</loc></url>
+<url><loc>/articles/H_iheatmapr.html</loc></url>
+<url><loc>/articles/I_linked_scatter_plots.html</loc></url>
+<url><loc>/articles/J_selectable_scatter_plots.html</loc></url>
+<url><loc>/articles/K_selectable_histogram.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/GBMdata.html</loc></url>
+<url><loc>/reference/GBMtopTable.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/voomed_GBM.html</loc></url>
 </urlset>
+
